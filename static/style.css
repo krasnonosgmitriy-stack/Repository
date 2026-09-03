@@ -1,0 +1,199 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+nav {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 56px;
+}
+
+nav a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: background 0.15s, color 0.15s;
+}
+
+nav a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+nav a.active { background: rgba(255,255,255,0.2); color: #fff; font-weight: 600; }
+
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+main {
+  max-width: 760px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.hero {
+  background: #fff;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+}
+
+.hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+.emoji { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+.tip {
+  margin-top: 2.5rem;
+  background: #fff8e1;
+  border-left: 4px solid #f59f00;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  font-size: 14px;
+  color: #555;
+}
+.tip strong { color: #333; }
+
+.about-page body { background: #f0fff4; }
+.about-page nav { background: #2f9e44; }
+.about-page .hero { border: 1px solid #c3f0d0; }
+.about-page .hero h1 { color: #1a4731; }
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.person {
+  background: #f0fff4;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid #c3f0d0;
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+
+.person .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 0.6rem;
+  background: #c3f0d0;
+}
+
+.person h4 { color: #1a4731; }
+.person p { color: #555; font-size: 13px; margin-top: 4px; }
+
+.contact-page body { background: #fff5f5; }
+.contact-page nav { background: #e03131; }
+.contact-page .hero { border: 1px solid #ffc9c9; }
+.contact-page .hero h1 { color: #5c0e0e; }
+
+.mesto body { background: #fff5f5; }
+.mesto nav { background: #5c0e0e; }
+.mesto .hero { border: 1px solid #ffc9c9; }
+.mesto .hero h1 { color: #5c0e0e; }
+
+.main body { background: #fff5f5; }
+.main nav { background: #e03131; }
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #dde3f0;
+  text-align: center;
+}
+
+.card h3 { color: #3b5bdb; margin-bottom: 0.4rem; }
+.card p   { color: #666; font-size: 14px; }
+
+.contacts {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff5f5;
+  border: 1px solid #ffc9c9;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 15px;
+  color: #333;
+}
+
+.contact-item .icon { font-size: 1.5rem; }
+
+.form-group { margin-top: 2rem; }
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ffc9c9;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-bottom: 1rem;
+  background: #fff;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #e03131;
+  box-shadow: 0 0 0 3px rgba(224,49,49,0.1);
+}
+
+.btn {
+  background: #e03131;
+  color: #fff;
+  border: none;
+  padding: 0.65rem 2rem;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.success {
+  display: none;
+  margin-top: 1rem;
+  background: #ebfbee;
+  border: 1px solid #8ce99a;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #2b8a3e;
+  font-size: 14px;
+}

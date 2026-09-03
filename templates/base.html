@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Restaurant</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #222;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .flash {
+            padding: 15px;
+            background: #d4edda;
+            color: #155724;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url_for('index') }}">Головна</a>
+
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('reservation') }}">Забронювати столик</a>
+            <a href="{{ url_for('logout') }}">Вийти</a>
+        {% else %}
+            <a href="{{ url_for('register') }}">Реєстрація</a>
+            <a href="{{ url_for('login') }}">Увійти</a>
+        {% endif %}
+    </nav>
+</header>
+
+
+<div class="container">
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

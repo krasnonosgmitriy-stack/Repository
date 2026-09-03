@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>..</title>
+</head>
+<body>
+    <h1>Генератор QR кодів</h1>
+
+    <form method="POST">
+        <input
+            type="text"
+            name="text"
+            placeholder="Введіть будь-який текст"
+            value="{{ text }}"
+            required
+        >
+        <button type="submit">Створити QR код</button>
+    </form>
+
+    {% if qr_url %}
+        <h2>Ваш QR код:</h2>
+        <img src="{{ qr_url }}" alt="QR-код">
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Коментарі</title>
+</head>
+
+<body>
+
+<h1>Усі коментарі</h1>
+
+{% if comments %}
+
+    {% for comment in comments %}
+
+        <div>
+
+            <h3>
+                {{ comment.user.username }}
+            </h3>
+
+            <p>
+                {{ comment.text }}
+            </p>
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>
+        Коментарів поки немає.
+    </p>
+
+{% endif %}
+
+<br>
+
+{% if current_user.is_authenticated %}
+
+    <a href="/create_coment">
+        Створити коментар
+    </a>
+
+{% else %}
+
+    <a href="/login">
+        Увійти, щоб залишити коментар
+    </a>
+
+{% endif %}
+
+<br><br>
+
+<a href="/">
+    На головну
+</a>
+
+</body>
+
+</html>

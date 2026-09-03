@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Фільми</title>
+</head>
+<body>
+
+<h2>Список фільмів</h2>
+
+{% for film in films %}
+
+<h3>{{ film.username }}</h3>
+
+<p>{{ film.description }}</p>
+
+<hr>
+
+{% endfor %}
+
+<a href="/">Назад</a>
+
+</body>
+</html>

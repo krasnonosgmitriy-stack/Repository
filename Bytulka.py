@@ -55,7 +55,7 @@ async def record_button(callback: CallbackQuery):
     film_id = int(callback.data.replace("record_", ""))
     conn = sqlite3.connect('films.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT poster FROM films WHERE id = ?", (film_id,))
+    cursor.execute("SELECT description, poster FROM films WHERE id = ?", (film_id,))
     film = cursor.fetchone()
     conn.close()
 
@@ -179,13 +179,13 @@ async def select_film_to_delete(callback: CallbackQuery, state: FSMContext):
 
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text=:"так видалити", callback_data="confirm_delete"),
+            InlineKeyboardButton(text="так видалити", callback_data="confirm_delete"),
             InlineKeyboardButton(text="Скасувати", callback_data="cancel_delete"),
         ]
     ])
 
     await callback.answer()
-    await call.message.answer(
+    await callback.message.answer(
         f"Ви впевнені що хочете видалити фільм '{film[0]}'?",
         reply_markup=keyboard
     )
@@ -230,7 +230,7 @@ async def delete_callback(callback: CallbackQuery):
     conn.commit()
     conn.close()
 
-    await callback.message.edit_text(Ф"ільм було успішно видаленно з бази даних")
+    await callback.message.edit_text("фільм було успішно видаленно з бази даних")
     await callback.answer()
 
 @dp.callback_query(lambda c: c.data == "cancel_delete")

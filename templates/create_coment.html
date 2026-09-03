@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Створити коментар</title>
+</head>
+
+<body>
+
+<h1>Створити коментар</h1>
+
+<p>
+    Ви увійшли як:
+    <b>{{ current_user.username }}</b>
+</p>
+
+<form method="POST">
+
+    <textarea
+        name="text"
+        placeholder="Напишіть коментар..."
+        rows="5"
+        cols="40"
+        maxlength="500"
+        required
+    ></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Опублікувати
+    </button>
+
+</form>
+
+<br>
+
+<a href="/comments">
+    Переглянути коментарі
+</a>
+
+<br><br>
+
+<a href="/">
+    На головну
+</a>
+
+</body>
+
+</html>

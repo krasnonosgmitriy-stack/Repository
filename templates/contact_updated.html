@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk" class="contact-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти — Мій сайт</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="/index">🌐 Мій сайт</a>
+    <a href="/index">Головна</a>
+    <a href="/about">Про нас</a>
+    <a href="/contact" class="active">Контакти</a>
+    <a href="/mesto" class="active">Містa</a>
+  </nav>
+
+
+  <main>
+    <div class="hero">
+      <span class="emoji">✉️</span>
+      <h1>Контакти</h1>
+
+      <div class="contacts">
+        <div class="contact-item">
+          <span class="icon">📧</span>
+          <span>hello@miy-sayt.ua</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📞</span>
+          <span>+380 (44) 123-45-67</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📍</span>
+          <span>Київ, Україна</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Твоє ім'я</label>
+        <input type="text" placeholder="Наприклад: Іванко">
+        <label>Повідомлення</label>
+        <textarea rows="3" placeholder="Напиши щось..."></textarea>
+        <button class="btn" onclick="sendMsg()">Надіслати 📨</button>
+        <div class="success" id="success">✅ Повідомлення надіслано! (Це просто демо 😊)</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>💡 Три сторінки — три файли:</strong>
+      <code>index.html</code>, <code>about.html</code>, <code>contact.html</code>.
+      Посилання <code>&lt;a href="contact.html"&gt;</code> веде сюди.
+      Ось як працює маршрутизація на чистому HTML!
+    </div>
+  </main>
+
+  <script>
+    function sendMsg() {
+      document.getElementById('success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h1>Ласкаво просимо до Online Restaurant!</h1>
+
+    {% if current_user.is_authenticated %}
+        <h2>Вітаємо, {{ current_user.username }}!</h2>
+    {% else %}
+        <p>
+            Зареєструйтесь або увійдіть, щоб робити замовлення
+            та бронювати столики.
+        </p>
+    {% endif %}
+
+    <p>
+        У нашому ресторані ви можете переглянути меню,
+        замовити улюблені страви та забронювати столик.
+    </p>
+
+    <a href="{{ url_for('menu') }}">
+        <button>Переглянути меню</button>
+    </a>
+</div>
+
+{% endblock %}

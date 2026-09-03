@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Мої нотатки{% endblock %}
+{% block content %}
+    <h1>Мої нотатки</h1>
+
+    <form method="post" action="{{ url_for('add_note') }}" class="form form-inline">
+        <input type="text" name="text" placeholder="Нова нотатка..." required>
+        <button type="submit" class="btn">Додати</button>
+    </form>
+
+    {% if notes %}
+        <ul class="notes-list">
+            {% for note in notes %}
+                <li class="note-item">
+                    <span>{{ note.text }}</span>
+                    <small>{{ note.created_at.strftime('%d.%m.%Y %H:%M') }}</small>
+                    <form method="post" action="{{ url_for('delete_note', note_id=note.id) }}">
+                        <button type="submit" class="btn btn-danger">Видалити</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>У вас поки немає нотаток.</p>
+    {% endif %}
+{% endblock %} '

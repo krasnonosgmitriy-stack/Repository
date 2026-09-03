@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Історія запитів погоди</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #4a90d9;
+            color: white;
+        }
+        tr:hover {
+            background: #f0f8ff;
+        }
+        .empty {
+            text-align: center;
+            color: #888;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Історія запитів погоди</h1>
+
+    {% if records %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Місто</th>
+                <th>Температура (°C)</th>
+                <th>Дата запиту</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.id }}</td>
+                <td>{{ record.city }}</td>
+                <td>{{ record.temperature }}</td>
+                <td>{{ record.created_at.strftime("%d.%m.%Y %H:%M:%S") }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty">Записів поки немає.</p>
+    {% endif %}
+</body>
+</html>
